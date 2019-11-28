@@ -11,5 +11,8 @@ namespace SymbolicMath {
     public override double calc() {
       return Math.Cos(value.calc());
     }
+    public override Expression diff() {
+      return new Polynomial(new Sin(this.value), new double[]{-1});
+    }
   }
 }

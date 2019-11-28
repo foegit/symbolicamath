@@ -6,5 +6,9 @@ namespace SymbolicMath
     {
         abstract public string toString();
         abstract public double calc();
+
+        virtual public Expression diff() {
+          return new Constant(0);
+        }
     }
 }

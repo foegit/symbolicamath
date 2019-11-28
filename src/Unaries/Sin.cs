@@ -11,5 +11,9 @@ namespace SymbolicMath {
     public override double calc() {
       return Math.Sin(value.calc());
     }
+
+    public override Expression diff() {
+      return new Cos(this.value);
+    }
   }
 }
