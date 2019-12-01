@@ -8,7 +8,7 @@ namespace SymbolicMath
         abstract public double calc();
 
         virtual public Expression diff() {
-          return new Constant(0);
+            return new Constant(0);
         }
     }
 }

@@ -6,49 +6,61 @@ namespace SymbolicMath
     {
         static void Main(string[] args)
         {
+            // Constant
+            Constant c = new Constant(2);
+            print(c);
 
-            Constant a = new Constant(0);
-            Constant b = new Constant(1);
-            Constant e = new Constant(Math.E);
+            // Variable
+            Variable x = new Variable("x", c);
+            Variable u = new Variable("u", new Pow(c, c));
+            Variable v = new Variable("v", new Exp(new Constant(Math.E)));
+            print(x);
 
-            print(new Sin(a));
-            print(new Cos(a));
+            // Sin
+            Sin sinx = new Sin(x);
+            print(sinx);
 
-            // Expression sin = new Sin(a);
-            // Expression cos = new Cos(b);
-            // Expression tg = new Tg(b);
-            // Expression ln = new Ln(e);
-            // Expression exp = new Exp(e);
-            // Expression ctg = new Ctg(b);
+            // Cos
+            Cos cosx = new Cos(x);
+            print(cosx);
 
-            // Expression p = new Constant(2);
-            // Expression q = new Constant(5);
-            // Expression add = new Add(ln, q);
-            // Expression sub = new Subsctract(p, q);
-            // Expression mult = new Mult(p, q);
-            // Expression div = new Div(p, q);
-            // Expression pow = new Pow(q, p);
+            // Exp
+            Exp ex = new Exp(x);
+            print(ex);
 
-            // double[] coef = new double[] {2, 3, 0, 0.5};
-            // Expression polinomial = new Polynomial(q, coef);
+            // Ln
+            Ln lnx = new Ln(x);
+            print(lnx);
 
-            // print(sin);
-            // print(cos);
-            // print(tg);
-            // print(ln);
-            // print(exp);
-            // print(ctg);
-            // print(add);
-            // print(sub);
-            // print(mult);
-            // print(div);
-            // print(pow);
-            // print(polinomial);
+            // Tg
+            Tg tgx = new Tg(x);
+            print(tgx);
+
+            // Ctg
+            Ctg ctgx = new Ctg(x);
+            print(ctgx);
+
+            // Add
+            Add add = new Add(u, v);
+            print(add);
+
+            // Substract
+            Subsctract sub = new Subsctract(u, v);
+            print(sub);
+
+            // Mult
+            Mult mult = new Mult(u, v);
+            print(mult);
+
+            // Div
+            Div div = new Div(u, v);
+            print(div);
+
         }
 
         static void print(Expression exp) {
-          Console.WriteLine($"\n* {exp.toString()} = {exp.calc()}");
-          Console.WriteLine($"* {exp.toString()}' = {exp.diff().toString()} = {exp.diff().calc()}\n");
+            Console.WriteLine($"\n* {exp.toString()} = {exp.calc()}");
+            Console.Write($"* ({exp.toString()})' = {exp.diff().toString()} = {exp.diff().calc()}\n");
         }
     }
 }
