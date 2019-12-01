@@ -6,10 +6,10 @@ namespace SymbolicMath {
             return degree * Math.PI / 180;
         }
 
-        static public string formatExpression(Expression exp) {
-            string result = exp.toString();
+        static public string formatFunction(Function fn) {
+            string result = fn.toString();
 
-            if (exp is Binaries || result[0] == '-') {
+            if (fn is Binaries || result[0] == '-') {
                 result = $"({result})";
             }
 

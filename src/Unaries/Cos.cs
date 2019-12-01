@@ -2,18 +2,20 @@ using System;
 
 namespace SymbolicMath {
     class Cos : Unaries {
-        public Cos(Expression value) : base(value) {}
+        public Cos(Function arg) : base(arg) {}
 
         public override string toString() {
-            return $"cos({value.toString()})";
+            return $"cos({Arg.toString()})";
         }
 
-        public override double calc() {
-            return Math.Cos(value.calc());
+        public override double calc(double x) {
+            return Math.Cos(Arg.calc(x));
         }
 
-        public override Expression diff() {
-            return new Polynomial(new Sin(this.value), new double[]{-1});
+        public override Function diff() {
+            Function g = Arg.diff();
+
+            return new Mult(g, new Mult(new Constant(-1), new Sin(Arg)));
         }
     }
 }

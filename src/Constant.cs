@@ -2,19 +2,23 @@ using System;
 
 namespace SymbolicMath
 {
-    class Constant : Expression
+    class Constant : Function
     {
-        private double number;
-        public Constant(double number) {
-            this.number = number;
+        private double constnValue;
+        public Constant(double c) {
+            this.constnValue = c;
         }
 
         public override string toString() {
-            return $"{number}";
+            return $"{constnValue}";
         }
 
-        public override double calc() {
-            return number;
+        public override double calc(double x) {
+            return constnValue;
+        }
+
+        public override Function diff() {
+            return new Constant(0);
         }
     }
 }

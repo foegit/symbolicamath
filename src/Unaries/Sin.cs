@@ -2,20 +2,20 @@ using System;
 
 namespace SymbolicMath {
     class Sin : Unaries {
-        public Sin(Expression value) : base(value) {}
+        public Sin(Function arg) : base(arg) {}
 
         public override string toString() {
-            return $"sin({value.toString()})";
+            return $"sin({Arg.toString()})";
         }
 
-        public override double calc() {
-            return Math.Sin(value.calc());
+        public override double calc(double x) {
+            return Math.Sin(Arg.calc(x));
         }
 
-        public override Expression diff() {
-            Expression o = this.value.diff();
+        public override Function diff() {
+            Function g = Arg.diff();
 
-            return new Mult(o, new Cos(this.value));
+            return new Mult(g, new Cos(Arg));
         }
     }
 }

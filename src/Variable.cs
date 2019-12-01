@@ -2,25 +2,18 @@ using System;
 
 namespace SymbolicMath
 {
-    class Variable : Expression
+    class Variable : Function
     {
-        private string name;
-        private Expression expression;
-        public Variable(string name, Expression expression) {
-            this.name = name;
-            this.expression = expression;
-        }
-
         public override string toString() {
-            return $"{name}";
+            return "x";
         }
 
-        public override double calc() {
-            return expression.calc();
+        public override double calc(double x) {
+            return x;
         }
 
-        public override Expression diff() {
-            return new Variable($"{name}'", expression.diff());
+        public override Function diff() {
+            return new Constant(1);
         }
     }
 }

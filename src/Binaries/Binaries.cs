@@ -1,12 +1,12 @@
 using System;
 
 namespace SymbolicMath {
-    abstract class Binaries : Expression {
-        public readonly Expression LValue;
-        public readonly Expression RValue;
-        public Binaries(Expression lvalue, Expression rvalue) {
-            this.LValue = lvalue;
-            this.RValue = rvalue;
+    abstract class Binaries : Function {
+        public Function LArg { get; }
+        public Function RArg { get; }
+        public Binaries(Function larg, Function rarg) {
+            LArg = larg;
+            RArg = rarg;
         }
     }
 }

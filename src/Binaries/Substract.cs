@@ -2,18 +2,18 @@ using System;
 
 namespace SymbolicMath {
     class Subsctract : Binaries {
-        public Subsctract(Expression lvalue, Expression rvalue) : base(lvalue, rvalue) {}
+        public Subsctract(Function larg, Function rarg) : base(larg, rarg) {}
 
         public override string toString() {
-            return $"{Tools.formatExpression(LValue)} - {Tools.formatExpression(RValue)}";
+            return $"{Tools.formatFunction(LArg)} - {Tools.formatFunction(RArg)}";
         }
 
-        public override double calc() {
-            return LValue.calc() - RValue.calc();
+        public override double calc(double x) {
+            return LArg.calc(x) - RArg.calc(x);
         }
 
-        public override Expression diff() {
-            return new Subsctract(LValue.diff(), RValue.diff());
+        public override Function diff() {
+            return new Subsctract(LArg.diff(), RArg.diff());
         }
     }
 }

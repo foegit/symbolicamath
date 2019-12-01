@@ -2,18 +2,18 @@ using System;
 
 namespace SymbolicMath {
     class Ln : Unaries {
-        public Ln(Expression value) : base(value) {}
+        public Ln(Function arg) : base(arg) {}
 
         public override string toString() {
-            return $"ln({value.toString()})";
+            return $"ln({Arg.toString()})";
         }
 
-        public override double calc() {
-            return Math.Log(value.calc(), Math.E);
+        public override double calc(double x) {
+            return Math.Log(Arg.calc(x), Math.E);
         }
 
-        public override Expression diff() {
-            return new Div(new Constant(1), value);
+        public override Function diff() {
+            return new Mult(Arg.diff(), new Div(new Constant(1), Arg));
         }
     }
 }

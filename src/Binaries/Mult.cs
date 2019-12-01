@@ -2,18 +2,18 @@ using System;
 
 namespace SymbolicMath {
     class Mult : Binaries {
-        public Mult(Expression lvalue, Expression rvalue) : base(lvalue, rvalue) {}
+        public Mult(Function larg, Function rarg) : base(larg, rarg) {}
 
         public override string toString() {
-            return $"{Tools.formatExpression(LValue)} * {Tools.formatExpression(RValue)}";
+            return $"{Tools.formatFunction(LArg)} * {Tools.formatFunction(RArg)}";
         }
 
-        public override double calc() {
-            return LValue.calc() * RValue.calc();
+        public override double calc(double x) {
+            return LArg.calc(x) * RArg.calc(x);
         }
 
-        public override Expression diff() {
-            return new Add(new Mult(LValue.diff(), RValue), new Mult(LValue, RValue.diff()));
+        public override Function diff() {
+            return new Add(new Mult(LArg.diff(), RArg), new Mult(RArg, RArg.diff()));
         }
     }
 }
