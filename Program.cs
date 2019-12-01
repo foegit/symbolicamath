@@ -67,14 +67,14 @@ namespace SymbolicMath
 
             // Integral
             Mult t = new Mult(x, x); // x^x
-            Console.WriteLine($"* Int({t.toString()}, -2, 2): {Integral.Rectancles(t, -2, 10)}");
+            Console.WriteLine($"* Int({t.toString()}, -2, 2): {Tools.Integral(t, -2, 2)}");
 
             // Equation
             Add eq = new Add(new Variable(), new Constant(2)); // x + 2 [x = 2]
             Subsctract eq2 = new Subsctract(new Pow(x, new Constant(2)), new Constant(10)); // x^2 - 10 [x1 = 3.1623, x2 = -3.1623]
 
-            Console.WriteLine($"* Equ({eq.toString()}, -2, 2): {Equator.Dichotomy(eq, -3, 2)}");
-            Console.WriteLine($"* Equ({eq2.toString()}, -10, 10): {Equator.Dichotomy(eq2, -10, 10)}");
+            Console.WriteLine($"* Equ({eq.toString()}, -2, 2): {Tools.Solve(eq, -3, 2)}");
+            Console.WriteLine($"* Equ({eq2.toString()}, -10, 10): {Tools.Solve(eq2, -10, 10)}");
         }
 
         static void print(Function exp, double x) {

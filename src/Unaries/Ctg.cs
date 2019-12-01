@@ -13,7 +13,7 @@ namespace SymbolicMath {
         }
 
         public override Function diff() {
-            return new Div(new Constant(-1), new Pow(new Sin(value), new Constant(2)));
+            return new Div(new Constant(-1), new Pow(new Sin(Arg), new Constant(2)));
         }
     }
 }

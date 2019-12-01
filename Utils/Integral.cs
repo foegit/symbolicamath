@@ -2,7 +2,7 @@ using System;
 
 namespace SymbolicMath {
     class Integral {
-        static public double Rectancles(Function fn, double a, double b) {
+        static public double integral(Function fn, double a, double b) {
             double n = 1000000;
             double range = b - a;
             double result = 0;
